@@ -170,4 +170,3 @@ alert(sum)
 //     }
 
 // document.body.appendChild(table);
-
