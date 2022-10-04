@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Пример Drag and Drop в HTML 5</title>
+<style>
+td {
+width: 64px;
+height: 64px;
+}
+
+#box {
+width: 400px;
+height: 200px;
+border: 2px dotted black;
+background-color: #ccc;
+padding:10px;
+}
+#section
+{
+width: 550px;
+margin:10px 0;
+display: inline-table;
+}
+</style>
+
+<script>
+function dragStart(e) {
+e.dataTransfer.setData("text/plain",e.target.id);
+}
+
+function dragEnter(e) {
+event.preventDefault();
+return true;
+}
+
+function dragDrop(e) {
+var data = e.dataTransfer.getData("text/plain");
+e.target.appendChild(document.getElementById(data));
+}
+
+function dragOver(e) {
+event.preventDefault();
+}
+</script>
+
+</head>
+<body>
+<div id="section" ondragenter="dragEnter(event)" ondrop="dragDrop(event)" ondragover="dragOver(event)">
+<table border="1">
+<tr>
+<td><img src="img1.png" id="img1" draggable="true" ondragstart="dragStart(event)"/></td>
+<td><img src="img2.png" id="img2" draggable="true" ondragstart="dragStart(event)"/></td>
+<td><img src="img3.png" id="img3" draggable="true" ondragstart="dragStart(event)"/></td>
+</tr>
+</table>
+</div>
+
+<div id="box" ondragenter="dragEnter(event)" ondrop="dragDrop(event)" ondragover="dragOver(event)"></div>
+</body>
+</html>

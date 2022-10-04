@@ -1,0 +1,9 @@
+*{
+    margin: auto;
+}
+video{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
